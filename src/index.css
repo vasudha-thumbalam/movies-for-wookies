@@ -12,9 +12,8 @@ body {
 }
 
 .container {
-  max-width: 768px;
   margin: auto;
-  padding: 0 20px;
+  padding: 20px 20px;
 }
 
 .header {
@@ -36,4 +35,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.poster {
+  width: 200px;
+  height: 350px;
+}
+
+.card {
+  height: 10%;
+  width: 20%;
+}
+
+.movies {
+  display: flex;
+  flex-flow: row wrap;
+  row-gap: 30px;
 }

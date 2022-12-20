@@ -6,9 +6,6 @@ import Header from "./Header";
 
 function Home() {
   const [list, setList] = useState([]);
-  useEffect(() => {
-    fetchList(1);
-  }, []);
 
   const fetchList = (page) => {
     axios
@@ -23,10 +20,13 @@ function Home() {
       });
   };
 
+  useEffect(() => {
+    fetchList(1);
+  }, []);
+
   return (
-    <div>
-      <Header />
-      <div className="App">
+    <div className="container">
+      <div className="App movies">
         {list.map((movie) => (
           <Card movie={movie} key={movie.imdbID} />
         ))}

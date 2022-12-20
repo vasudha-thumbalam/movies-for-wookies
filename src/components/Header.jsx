@@ -10,7 +10,7 @@ function Header() {
           Home
         </NavLink>
         <NavLink to="/search" className="navLinks">
-          Searcha
+          Search
         </NavLink>
       </nav>
     </div>

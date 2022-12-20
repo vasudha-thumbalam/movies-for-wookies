@@ -31,16 +31,15 @@ function Search() {
   };
 
   return (
-    <div>
+    <div className="container">
       <div>
-        <Header />
         <form onSubmit={searchMovies}>
-          <label htmlFor="msearch">Search Movie:</label>
+          <label htmlFor="msearch">Search</label>
           <input type="search" id="msearch" name="msearch" />
           <input type="submit" />
         </form>
       </div>
-      <div>
+      <div className="App movies">
         {movieResult &&
           movieResult.map((movie) => <Card movie={movie} key={movie.imdbID} />)}
       </div>
