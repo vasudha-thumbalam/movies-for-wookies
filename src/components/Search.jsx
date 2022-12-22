@@ -1,12 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-
-import Header from "./Header";
 import Card from "./Card";
 
 function Search() {
   const [movieResult, setMovieResult] = useState([]);
   const [isError, setIsError] = useState(false);
+
   const searchMovies = (e) => {
     e.preventDefault();
     const searchInput = document.querySelector("#msearch");
@@ -17,6 +16,7 @@ function Search() {
         )
       )
       .then((res) => {
+        setIsError(false);
         if (res.data.Response === "False") {
           console.log(res.data.Error);
           setIsError(true);
@@ -31,11 +31,14 @@ function Search() {
 
   return (
     <div className="container">
-      <div>
+      <div className="search-container">
         <form onSubmit={searchMovies}>
-          <label htmlFor="msearch">Search</label>
-          <input type="search" id="msearch" name="msearch" />
-          <input type="submit" />
+          <input
+            type="text"
+            placeholder="Search..."
+            name="msearch"
+            id="msearch"
+          />
         </form>
       </div>
       <div className="App movies">

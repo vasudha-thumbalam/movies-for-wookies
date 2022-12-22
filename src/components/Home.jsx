@@ -5,8 +5,15 @@ import Card from "./Card";
 
 function Home() {
   const [list, setList] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState();
+  useEffect(() => {
+    fetchList(page);
+  }, [page]);
 
   const fetchList = (page) => {
+    if (page < totalPages) {
+    }
     axios
       .get(
         encodeURI(
@@ -14,14 +21,10 @@ function Home() {
         )
       )
       .then((res) => {
-        setList(res.data.Search);
-        console.log(res.data.Search);
+        setTotalPages(Math.ceil(res.totalResults / 10));
+        setList([...list, ...res.data.Search]);
       });
   };
-
-  useEffect(() => {
-    fetchList(1);
-  }, []);
 
   return (
     <div className="container">
@@ -29,6 +32,18 @@ function Home() {
         {list.map((movie) => (
           <Card movie={movie} key={movie.imdbID} />
         ))}
+      </div>
+      <div className="flex-end">
+        <button
+          className="btn"
+          onClick={() => {
+            setPage(page + 1);
+          }}
+          disabled={page > totalPages}
+        >
+          {" "}
+          More
+        </button>
       </div>
     </div>
   );

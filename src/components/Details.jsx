@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Header from "./Header";
 
 const Details = () => {
   const { id } = useParams();
@@ -26,18 +25,29 @@ const Details = () => {
   return (
     <div>
       {isLoading && (
-        <div>
-          <h2> {movieDetails.Title} </h2>
-          <h3>Plot: </h3>
-          {movieDetails.Plot}
-          <h3>Actors: </h3>
-          {movieDetails.Actors}
-          <h3>IMDB rating: </h3>
-          {movieDetails.imdbRating}
-          <h3>Duration: </h3>
-          {movieDetails.Runtime}
+        <div className="movieDetailsContainer">
           <div>
             <img src={movieDetails.Poster} alt="" />
+          </div>
+          <div>
+            <h2> {movieDetails.Title} </h2>
+            <div className="movieDetails">
+              <h3>Plot: </h3>
+              {movieDetails.Plot}
+            </div>
+
+            <div className="movieDetails">
+              <h3>Actors: </h3>
+              {movieDetails.Actors}
+            </div>
+            <div className="movieDetails">
+              <h3>IMDB rating: </h3>
+              {movieDetails.imdbRating}
+            </div>
+            <div className="movieDetails">
+              <h3>Duration: </h3>
+              {movieDetails.Runtime}
+            </div>
           </div>
         </div>
       )}

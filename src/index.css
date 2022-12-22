@@ -52,3 +52,45 @@ code {
   flex-flow: row wrap;
   row-gap: 30px;
 }
+
+.movieDetailsContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 3%;
+}
+
+.movieDetails {
+  padding: 10px;
+}
+
+.btn {
+  color: #202142;
+  border: 0;
+  border-radius: 8px;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.flex-end {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 50px auto;
+}
+input[type="text"] {
+  display: block;
+  width: calc(
+    100% - 24px
+  ); /*20px [ left & Right ] padding + 4px border [ left & Right ] */
+  font-size: 18px;
+  font-weight: 600;
+  color: #202142;
+  padding: 10px;
+  border: 2px solid #202142;
+}

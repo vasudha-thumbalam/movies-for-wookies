@@ -24,16 +24,12 @@ test("renders details of a movie", async () => {
     </BrowserRouter>
   );
 
-  const inputSearch = screen.getByRole("searchbox", { name: "Search" });
+  const inputSearch = screen.getByRole("textbox");
   expect(inputSearch).toBeInTheDocument();
-
-  const submitButton = screen.getByRole("button", { name: "Submit" });
-  expect(submitButton).toBeInTheDocument();
 
   const user = userEvent.setup();
 
-  await user.type(inputSearch, "sample");
-  await user.click(submitButton);
+  await user.type(inputSearch, "sample{enter}");
   expect(axios.get).toHaveBeenCalled();
 
   const cardElements = await screen.findAllByAltText("Movies");
