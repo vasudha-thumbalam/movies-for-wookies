@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import Card from "./Card";
-import Header from "./Header";
 
 function Home() {
   const [list, setList] = useState([]);
@@ -15,7 +14,7 @@ function Home() {
         )
       )
       .then((res) => {
-        setList([...list, ...res.data.Search]);
+        setList(res.data.Search);
         console.log(res.data.Search);
       });
   };

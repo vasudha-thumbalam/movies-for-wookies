@@ -17,7 +17,6 @@ function Search() {
         )
       )
       .then((res) => {
-        console.log(res.data.Response);
         if (res.data.Response === "False") {
           console.log(res.data.Error);
           setIsError(true);

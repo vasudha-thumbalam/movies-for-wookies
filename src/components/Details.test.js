@@ -1,7 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import axios from "axios";
-import { act } from "react-dom/test-utils";
-import { BrowserRouter } from "react-router-dom";
 import Details from "./Details";
 
 jest.mock("axios");
@@ -15,11 +13,7 @@ test("renders details of a movie", async () => {
 
   axios.get.mockResolvedValueOnce(movieDetails);
 
-  render(
-    <BrowserRouter>
-      <Details />
-    </BrowserRouter>
-  );
+  render(<Details />);
 
   expect(axios.get).toHaveBeenCalled();
 
@@ -36,11 +30,7 @@ test("renders error message", async () => {
 
   axios.get.mockResolvedValueOnce(movieDetails);
 
-  render(
-    <BrowserRouter>
-      <Details />
-    </BrowserRouter>
-  );
+  render(<Details />);
 
   expect(axios.get).toHaveBeenCalled();
 
